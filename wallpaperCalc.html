@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Wallpaper roll calculator</h3>
+<div>width of wall: </div>
+<input type="text" id="widthWall" >
+    <div>height of wall: </div>
+<input type="text" id="heightWall">
+    <div>width of paper: </div>
+<input type="text" id="widthPaper">
+    <div>vertical repeat: </div>
+<input type="text" id="vertRepeat">
+    <div>length of roll: </div>
+    <input type="text" id="rollLength">
+
+
+<div>
+    <button onclick="rollCalc()" style="margin-top: 20px; margin-bottom: 20px;">Calculate</button>
+    <div>Number of rolls required: </div>
+    <p id="output"></p></div>
+    
+
+<script>
+   
+function rollCalc() {
+  var widthWall = document.getElementById("widthWall").value|0;
+  var heightWall = document.getElementById("heightWall").value|0;
+  var widthPaper = document.getElementById("widthPaper").value|0;
+  var vertRepeat = document.getElementById("vertRepeat").value|0;
+  var rollLength = document.getElementById("rollLength").value|0;
+  
+  var widthRatio = widthWall/widthPaper;
+  var heightSum = heightWall + vertRepeat;
+  var rollCount = (widthRatio*heightSum)/rollLength;
+    
+  document.getElementById("output").innerHTML = rollCount.toFixed(2);
+}
+</script>
+
+</body>
+</html>
